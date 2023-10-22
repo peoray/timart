@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db": "nodemon initializeDatabase.js"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
     "mysql2": "^3.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
