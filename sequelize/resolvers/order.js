@@ -30,11 +30,6 @@ const orderResolver = {
       })
     },
   },
-  //   User: {
-  //     orders(parent) {
-  //       return orders.filter((order) => order.user_id == parent.id)
-  //     },
-  //   },
 
   Mutation: {
     async createOrder(_, { input }) {
@@ -46,12 +41,17 @@ const orderResolver = {
 
       try {
         const { total_amount, order_date, order_status, user_id } = input
-        const order = await Order.create({
-          total_amount,
-          order_date,
-          order_status,
-          user_id,
-        })
+        const order = await Order.create(
+          {
+            total_amount,
+            order_date,
+            order_status,
+            user_id,
+          },
+          {
+            fields: ['total_amount', 'order_date', 'order_status'], // Exclude updatedAt and createdAt
+          }
+        )
         return order
       } catch (error) {
         throw new Error('Failed to create the order')
