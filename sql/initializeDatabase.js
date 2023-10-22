@@ -23,5 +23,5 @@ const initializeDatabase = async () => {
   }
 }
 
-// initializeDatabase() // use if you want to run individual script - npm run db
-module.exports = initializeDatabase // use only if you're running main.js
+initializeDatabase() // use if you want to run individual script - npm run db
+// module.exports = initializeDatabase // use only if you're running main.js

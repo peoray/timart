@@ -8,11 +8,10 @@ CREATE TABLE IF NOT EXISTS Users (
   last_name VARCHAR(255),
   username VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  gender ENUM('Male', 'Female', 'Other'),
+  gender ENUM('male', 'female', 'other'),
   address VARCHAR(255),
   dob DATE,
-  status ENUM('Active', 'Inactive', 'Suspended'),
-  created_at DATETIME
+  status ENUM('active', 'inactive', 'suspended')
   );
 
 -- Create the Orders table with a foreign key reference to Users
@@ -20,7 +19,7 @@ CREATE TABLE IF NOT EXISTS Orders (
   id INT AUTO_INCREMENT PRIMARY KEY,
   order_date DATE NOT NULL,
   total_amount DECIMAL(10, 2) NOT NULL,
-  order_status ENUM('Processing', 'Shipped', 'Delivered'),
+  order_status ENUM('processing', 'shipped', 'delivered'),
   discount_code VARCHAR(20),
   user_id INT,
   FOREIGN KEY (user_id) REFERENCES Users (id)

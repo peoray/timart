@@ -21,21 +21,10 @@ async function insertSampleData() {
       'Inactive',
       'Suspended',
     ])
-    const createdAt = faker.date.past()
 
     await connection.execute(
-      'INSERT INTO Users (first_name, last_name, username, email, gender, address, dob, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-      [
-        firstName,
-        lastName,
-        username,
-        email,
-        gender,
-        address,
-        dob,
-        status,
-        createdAt,
-      ]
+      'INSERT INTO Users (first_name, last_name, username, email, gender, address, dob, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+      [firstName, lastName, username, email, gender, address, dob, status]
     )
   }
 
@@ -60,5 +49,5 @@ async function insertSampleData() {
   connection.end()
 }
 
-// insertSampleData() // use if you want to run individual script - npm run insert
-module.exports = insertSampleData // use only if you're running main.js
+insertSampleData() // use if you want to run individual script - npm run insert
+// module.exports = insertSampleData // use only if you're running main.js
