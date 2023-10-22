@@ -2,7 +2,7 @@
 
 ### Task 1: Database Schema and Query Optimization
 
-## Prerequisites
+### Prerequisites
 
 Before running the project, ensure you have the following:
 
@@ -10,7 +10,7 @@ Before running the project, ensure you have the following:
 - MySQL server installed and running.
 - Access to a MySQL database where you can create tables.
 
-## Project Structure
+### Project Structure
 
 - **index.js:** The index script that orchestrates the database setup, data insertion, and query optimization tasks.
 - **initializeDatabase.js:** Initializes the MySQL database by creating the necessary tables.
@@ -19,7 +19,7 @@ Before running the project, ensure you have the following:
 - **dbConnection.js:** Establishes a database connection and exports it for use in other files.
 - **database_setup.sql**: Contains the SQL commands for creating the database and tables.
 
-## Usage
+### Usage
 
 Clone the repository to your local machine:
 
@@ -35,7 +35,7 @@ cd into `sql` directory and install the project dependencies
 run npm install
 ```
 
-## Environment Configuration
+### Environment Configuration
 
 Before running the project, you need to set up your environment variables. Create a `.env` file in the sql project root directory and provide the following configuration:
 
@@ -58,7 +58,7 @@ cp .env.sample .env
 copy .env.sample .env
 ```
 
-#### Set up your MySQL database:
+### Set up your MySQL database:
 
 You should have MySQL installed on your server or locally.
 
@@ -68,7 +68,7 @@ To run the command to setup the database and create the tables needed
 npm run db
 ```
 
-#### Insert Sample Data:
+### Insert Sample Data:
 
 To insert the sample data into the database, run this command:
 
@@ -76,7 +76,7 @@ To insert the sample data into the database, run this command:
 npm run insert
 ```
 
-#### Query Optimization:
+### Query Optimization:
 
 To retrieves the top 10 users who have made the most orders, run this command
 
@@ -85,8 +85,82 @@ To retrieves the top 10 users who have made the most orders, run this command
 npm run query
 ```
 
-To run the commands at the same time:
+<!-- To run the commands at the same time:
 
 ```bash
 npm run dev
+``` -->
+
+## Task 2: Node.js API
+
+### Install project dependencies:
+cd into `sequelize` directory and install the project dependencies
+
+```bash
+# inside of the sql directory
+run npm install
+```
+
+To run the project
+
+```bash
+# inside of the sql directory
+run npm dev
+```
+
+>Ensure you go into `database/config/config.js` and update the database credentials.
+
+### API Documentation
+
+- Create a new user
+
+```mutation CreateUser($input: UserInput!) {
+  createUser(input: $input) {
+    id
+    first_name
+    email
+    createdAt
+  }
+}
+```
+
+- Retrieve user information by ID.
+
+```query UserQuery($id: ID!) {
+  user(id: $id) {
+    id
+    first_name
+    email    
+  }
+}
+```
+- Create a new order for a user.
+
+```
+mutation CreateOrder($input: OrderInput!) {
+  createOrder(input: $input) {
+    total_amount
+    order_status
+    order_date
+  }
+}
+```
+
+- Retrieve a user's orders.
+
+```query UserQuery($id: ID!) {
+  user(id: $id) {
+    id
+    first_name
+    email
+    createdAt
+    updatedAt
+    orders {
+      id
+      total_amount
+      order_date
+    }
+    
+  }
+}
 ```
