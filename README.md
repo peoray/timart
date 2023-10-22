@@ -12,7 +12,7 @@ Before running the project, ensure you have the following:
 
 ## Project Structure
 
-- **main.js:** The main script that orchestrates the database setup, data insertion, and query optimization tasks.
+- **index.js:** The index script that orchestrates the database setup, data insertion, and query optimization tasks.
 - **initializeDatabase.js:** Initializes the MySQL database by creating the necessary tables.
 - **insertSampleData.js:** Inserts sample data into the tables.
 - **queryOptimization.js:** Optimizes a SQL query to retrieve the top users with the most orders.
