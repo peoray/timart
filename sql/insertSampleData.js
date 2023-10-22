@@ -60,4 +60,5 @@ async function insertSampleData() {
   connection.end()
 }
 
-insertSampleData()
+// insertSampleData() // use if you want to run individual script - npm run insert
+module.exports = insertSampleData // use only if you're running main.js

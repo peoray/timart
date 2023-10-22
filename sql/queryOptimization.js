@@ -36,4 +36,5 @@ async function queryOptimization() {
   connection.end()
 }
 
-queryOptimization()
+// queryOptimization() // use if you want to run individual script - npm run query
+module.exports = queryOptimization // use only if you're running main.js
