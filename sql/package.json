@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "db": "node initializeDatabase.js",
-    "insert": "node insertSampleData.js"
+    "insert": "node insertSampleData.js",
+    "query": "node queryOptimization.js"
   },
   "keywords": [],
   "author": "",
